@@ -1,0 +1,40 @@
+@startuml
+class cars.Car {
+- String type
++ String getType()
++ void setType(String)
+}
+class cars.RentMgrSys {
++ {static} void main(String[])
++ {static} void setAccount(int)
+}
+class cars.Trunk {
+- int capacity
++ int getCapacity()
++ void setCapacity(int)
+}
+class cars.Vehicle {
+- String brand
+- String vehicleId
+- int perRent
+- {static} double account
++ String getBrand()
++ void setBrand(String)
++ String getVehicleId()
++ void setVehicleId(String)
++ int getPerRent()
++ void setPerRent(int)
++ {static} double getAccount()
++ {static} void setAccount(double)
+}
+class cars.Bus {
+- int seats
++ int getSeats()
++ void setSeats(int)
+}
+
+
+cars.Vehicle <|-- cars.Car
+cars.Vehicle <|-- cars.Trunk
+cars.Vehicle <|-- cars.Bus
+@enduml

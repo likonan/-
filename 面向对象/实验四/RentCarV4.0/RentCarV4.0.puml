@@ -1,0 +1,101 @@
+@startuml
+class RentCar.Account {
+- {static} long serialVersionUID
+- int account
+- int keyWord
++ int getAccount()
++ void setAccount(int)
++ int getKeyWord()
++ void setKeyWord(int)
++ boolean equals(Object)
++ int hashCode()
+}
+class RentCar.Bill {
+- int days
+- double discount
+~ Vehicle vehicle
++ void addVehicle(Vehicle)
++ int getDays()
++ void setDays(int)
++ double getDiscount()
++ void setDiscount(double)
+}
+class RentCar.Main {
++ {static} void main(String[])
++ {static} void showLoginScreen()
++ {static} void createAccount(HashSet<Account>)
++ {static} Account logIn(HashSet<Account>)
++ {static} void showUserFunc()
++ {static} void showAdminFunc()
++ {static} void showVehicle(ArrayList<Vehicle>)
++ {static} void addVehicle(ArrayList<Vehicle>)
++ {static} void modifyVehicle(ArrayList<Vehicle>)
++ {static} void deleteVehicle(ArrayList<Vehicle>)
++ {static} void rentVehicle(ArrayList<Vehicle>,Account)
++ {static} void changeVehicle(ArrayList<Vehicle>,Account)
++ {static} void pay(HashSet<Account>,Account)
++ {static} void showProfit(HashSet<Account>)
++ {static} double setAccount(int)
++ {static} HashSet<Account> getHashSet()
++ {static} ArrayList<Vehicle> getArrayList()
+}
+class RentCar.Car {
+- String type
++ String getType()
++ void setType(String)
+}
+class RentCar.SystemMaintenance {
++ void run()
+}
+class RentCar.User {
+- double cost
+- Bill[] bills
++ Bill[] getBills()
++ void setBills(Bill[])
++ void addBills(Bill)
++ void changeBills(int,Bill)
++ void showBills()
++ void showCost()
++ double getCost()
+}
+class RentCar.Administrator {
+- double profit
++ double getProfit()
++ void setProfit(double)
+}
+class RentCar.Vehicle {
+- {static} long serialVersionUID
+- String brand
+- String vehicleId
+- int perRent
+- boolean isRent
++ boolean isRent()
++ void setRent(boolean)
++ String getBrand()
++ void setBrand(String)
++ String getVehicleId()
++ void setVehicleId(String)
++ int getPerRent()
++ void setPerRent(int)
+}
+class RentCar.Bus {
+- int seats
++ int getSeats()
++ void setSeats(int)
+}
+class RentCar.Trunk {
+- int capacity
++ int getCapacity()
++ void setCapacity(int)
+}
+
+
+java.io.Serializable <|.. RentCar.Account
+RentCar.Vehicle <|-- RentCar.Car
+RentCar.Thread <|-- RentCar.SystemMaintenance
+RentCar.Account <|-- RentCar.User
+RentCar.Account <|-- RentCar.Administrator
+java.io.Serializable <|.. RentCar.Vehicle
+RentCar.Vehicle <|-- RentCar.Bus
+RentCar.Vehicle <|-- RentCar.Trunk
+@enduml
